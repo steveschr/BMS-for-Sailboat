@@ -1,8 +1,11 @@
 # Description & Purpose
+
 Determinining lithium battery state of charge by cell voltage alone is too imprecise.  Impossible to determine health of pack by pack voltage.
 
 I didn't like the idea of a drop in battery that might decide to disconnect or do a load dump when it wanted to.  (On a boat that means the worst possible moment)  I didn't want to add a start battery and the associated inefficiencies and complexity  When I started this project there wasn't much hardware available.  That's changed some but I still like this better.
 
+
+# Credits
 
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
@@ -11,6 +14,12 @@ Accuracy to around 5 mV.  Can be tuned for variations in resistor values.  Curre
 
 # Construction
 Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with a hot plate for the surface mount and hand soldered to through hole components.
+
+# hardware
+Atmega 644 based.  
+
+# Software
+Compiled on Arduino IDE with MCUdude's excellent MightyCore
 
 # BOM
 
