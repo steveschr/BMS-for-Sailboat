@@ -6,14 +6,18 @@ I didn't like the idea of a drop in battery that might decide to disconnect or d
 
 
 # Credits
+Stuart Pittaway
 
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
-Accuracy to around 5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output amplified by INA213 and read by MCP3204.  
+Accuracy better than +-5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output amplified by INA213 and read by MCP3204.  
 40mA current draw, 80mA when LCD lit.
 
 # Construction
-Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with a hot plate for the surface mount and hand soldered to through hole components.
+Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with a hot plate for the surface mount.
+EasyEDA format schematic & board as well as gerbers for all.
+ 
+3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
 
 # hardware
 Atmega 644 based.  
@@ -25,10 +29,13 @@ Compiled on Arduino IDE with MCUdude's excellent MightyCore
 
 # Installation
 ## Modifications to boat
-Latching relays control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank.
-
+Latching relays control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.
+3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
 
 # Details
+
+# Future Plans
+Maybe add Bluetooth
 
 ## Parameter Menu Settings
 
