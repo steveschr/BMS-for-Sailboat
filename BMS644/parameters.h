@@ -45,9 +45,10 @@ add cell V to cell trim screens, add stats for last charge data to show cells,
 v 1.2.1(b)
 changed some pin assignments to match new hardware & balance board.  use top cell for pack voltage calc.  
 set balance time to 10 min (100mA).  dont record UT event to EEPROM.  Display packvoltage instead of sum of cells
-fixup lv disconnect logic.  set lv alarm 10mV higher than lv disco if it was lower
+fixup lv disconnect logic.  set lv alarm 10mV higher than lv disco if it was lower, reworked menu input - now requires button 
+press to set value.  Improved open cell routine.  cell # 0 vol can remain high - no bleed.  Cell #3 triggers both hv & lv disco
 
-NEED reset lvdisco bounds , doesn't react to open cell - abs calc?  getADC cellarry is int -should be float, cycle count prbly wrong 
+NEED reset lvdisco bounds , cycle count prbly wrong , RESST SHUNT
 
 */
 

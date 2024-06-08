@@ -332,7 +332,7 @@ void logic() {  //add bank out of range,
    }
   }
   // sanity checks
-  if (cellV[minIndex] < 1.5 || cellV[maxIndex] > 4.1 || amps0 > 100.0 || amps0 < -250.0) {
+  if (cellV[minIndex] < 2.1 || cellV[maxIndex] > 4.1 || amps0 > 100.0 || amps0 < -250.0) {
     if (!AlarmFlagSYS) {
       flagCountSYS++;
       if (flagCountSYS > 64) {
@@ -375,33 +375,38 @@ void getAdc() {
   float maxAllowedDrift = parameters[SCRmaxDrift][0] / 1000.0;
   float minVoltage = 4.096;
   float maxVoltage = 0;
-  int cellArray[4] = { 0, 0, 0, 0 };
+  float cellArray[4] = { 0, 0, 0, 0 };
 
   for (byte i = 0; i < 4; i++) {  //read cell V  4 cells, 5 loops through
     cellArray[i] = 0;
     for (byte j = 0; j < 5; j++) {  //5 times
       cellArray[i] += adc1.analogRead(i);
     }
+    if (cellArray[i] < 2000) {
+      if (!AlarmFlagOC) {
+        writeeprom(3, 9);
+      }
+    alarm();
+    AlarmFlagOC = true;
+    cellArray[i] = 5;
+    }  
     cellArray[i] = (cellArray[i] / 5);  //get average
     cellV[i] = (cellArray[i] * vref1);  //convert to V
   }
 
+  cellV[0] += (parameters[SCRC0Trim][0] / 1000.0);  //adjust cell Vs with trim values
+
   cellV[1] /= cellRdiv1;
   cellV[1] -= cellV[0];
-  //cellV[1] = abs(cellV[1]);
+  cellV[1] += (parameters[SCRC1Trim][0] / 1000.0);
 
   cellV[2] /= cellRdiv2;
   cellV[2] -= cellV[0] + cellV[1];
-  //cellV[2] = abs(cellV[2]);
+  cellV[2] += (parameters[SCRC2Trim][0] / 1000.0);
 
   packVoltage = (cellV[3] * 13.319) / 3.319;    // grab ADC output of top cell here Vout = Vs x R2 / (R1 + R2)   >> Vs = ( Vo(r1+R2) ) / R2
   cellV[3] /= cellRdiv3;
   cellV[3] -= cellV[0] + cellV[1] + cellV[2];
-  //cellV[3] = abs(cellV[3]);
-
-  cellV[0] += (parameters[SCRC0Trim][0] / 1000.0);  //adjust cell Vs with trim values
-  cellV[1] += (parameters[SCRC1Trim][0] / 1000.0);
-  cellV[2] += (parameters[SCRC2Trim][0] / 1000.0);
   cellV[3] += (parameters[SCRC3Trim][0] / 1000.0);
 
   Total_Voltage = 0;
@@ -434,6 +439,7 @@ void getAdc() {
       }
     }
   }
+
 
   if (AlarmFlagOV) {
     if (maxVoltage <= parameters[SCRHVAlarm][0] - .015) {
@@ -862,6 +868,9 @@ void taskManager() {
       startBoat();
       break;
   */
+    case 0:
+      break;
+    
     case 1:  //clear alarm count
       EEPROM.put(alarmHistoryPointer, 0);
       parameters[SCRresetAlrm][0] = 0;
@@ -887,8 +896,8 @@ void taskManager() {
       }
       parameters[currentScreen][0] = 0;
       break;
-  /*
-    case 4:
+     /*
+      case 4:
       resetFlags();
       resetall(2);
       break;
@@ -898,7 +907,7 @@ void taskManager() {
       writeeprom(1, 0);
       parameters[currentScreen][0] = 0;
       break;
-  */
+    */
     case 6:  //set DUM mode
       currentMode = "DUM";
       resetFlags();

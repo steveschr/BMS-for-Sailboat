@@ -5,10 +5,12 @@ void inputAction() {
   menuTimer += 3000;
   getCurrentScreen();
   encVal = 0;
-  encButtonPressed = 0;
+  //encButtonPressed = 0;
   cleanDisplay();
   printScreen();
-  float temp2 = 0;   //used to see if we changed something and need to write eprom
+  //float temp2 = 0;   //used to see if we changed something and need to write eprom
+  bool dowewrite = 0;
+
   do {
     encVal = 0;
     encoder();
@@ -19,23 +21,28 @@ void inputAction() {
 
 
         case SCRbankCapacity:  //bank capacity              <OK>
-          parameters[currentScreen][1] += temp * 5 ;                                 //(temp * 5);
+            parameters[currentScreen][1] += temp * 5 ;                                 //(temp * 5);
+            dowewrite = 1;
           break;
         
         case SCRstartChargeV:  //Start Charge         
             parameters[currentScreen][1] += (temp / 100); // 1000 / 100 = 10mv / step
+            dowewrite = 1;  
           break;
 
         case SCRstopChargeV:  //Stop Charge
             parameters[currentScreen][1] += (temp / 100);
+            dowewrite = 1;
           break;
 
         case SCRSOCstart:  //SOC start charge             
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRSOCstop:  //SOC stop charge
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRchargeMode:  //   
@@ -48,6 +55,8 @@ void inputAction() {
             lcd.setCursor(0, 1);
             lcd.print(F("Stop V ="));
             lcd.print( parameters[SCRstopChargeV][0] );
+            //lcd.setCursor(0, 3);
+            //lcd.print(F("PRESS TO SAVE"));
             delay(3000);
           }
          if (parameters[currentScreen][1] == 0 ) {
@@ -55,8 +64,11 @@ void inputAction() {
             lcd.setCursor(0, 0);
             lcd.print(F("Stop V ="));
             lcd.print( parameters[SCRstopChargeV][0] );            
+            //lcd.setCursor(0, 3);
+            //lcd.print(F("PRESS TO SAVE"));
             delay(3000);
          }
+            dowewrite = 1;
           break;
 
         case SCRchargeToFullNow:                                        //start charging now to stop parameters 
@@ -70,43 +82,53 @@ void inputAction() {
 
         case SCRefficiency:  //                        
             parameters[currentScreen][1] += (temp / 10);
+            dowewrite = 1;
           break;
 
         case SCRHVAlarm:  //HV Alarm
             parameters[currentScreen][1] += (temp / 20);
+            dowewrite = 1;
           break;
 
         case SCRLVAlarm:  //LV Alarm
             parameters[currentScreen][1] += (temp / 20);
+            dowewrite = 1;
           break;
 
         case SCRHVdisconnect: //HV Cutoff
             parameters[currentScreen][1] += (temp / 20);
+            dowewrite = 1;
           break;
 
         case SCRLVdisconnect:  //LV Cutoff
             parameters[currentScreen][1] += (temp / 20);
+            dowewrite = 1;
           break;
 
         case SCRmaxDrift:  //maxDrift
             temp *= 5;
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRC0Trim:  //cell trim              <OK>
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRC1Trim:  //cell trim              <OK>
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRC2Trim:  //cell trim              <OK>
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRC3Trim:  //cell trim              <OK>
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
         case SCRshowCells:  // show cells              <OK>
@@ -132,7 +154,6 @@ void inputAction() {
         case SCRresetAlrm:  //reset alrm              <OK>
           parameters[currentScreen][1] += temp;
           task = 1;  //clear alarm count
-          temp = 0;
           break;
 
         case SCRmode:  //
@@ -147,15 +168,18 @@ void inputAction() {
             task = 6;
             temp = 0;
           }
+          //dowewrite = 1;
           break;
 
         case SCRbalanceV:  //balance allow V              
             parameters[currentScreen][1] += (temp / 100);
+            dowewrite = 1;
           break;
 
 
         case SCRencoderDir:  // set encoder direction             <OK>
             parameters[currentScreen][1] += temp;
+            dowewrite = 1;
           break;
 
 
@@ -164,8 +188,7 @@ void inputAction() {
           if (parameters[currentScreen][1] == 1) {
             task = 3;
             parameters[currentScreen][1] = 0;
-          }
-          temp = 0;          
+          }   
           break;
 
 
@@ -175,17 +198,18 @@ void inputAction() {
           if (ampSeconds == 0) {ampSeconds = 1;}
           ampHours = ampSeconds / 3600.0;
           bankAH = parameters[SCRbankCapacity][0] + ampHours ;
-          parameters[currentScreen][1] = bankAH;
-          temp = 0;          
+          parameters[currentScreen][1] = bankAH;  
           break;
 
         case SCRshuntPol:
           parameters[currentScreen][1] += temp; 
           shuntPolarity = parameters[currentScreen][1] ;
+          dowewrite = 1;
           break;
           
         case SCRnumTsense:
           parameters[SCRnumTsense][1] += temp;
+          dowewrite = 1;
           break;
         
       }
@@ -194,17 +218,21 @@ void inputAction() {
       lcd.clear();
       cleanDisplay();
       printScreen();
-      temp2=temp;  
+      //temp2=temp;  
     }
     lcd.setCursor(0, 3);
     cleanDisplay();
-    lcd.print(F("> "));
+    lcd.print(F("> PRESS TO SAVE"));
+    //lcd.print (encButtonPressed) ;
+    //lcd.print(F("> "));
+    //lcd.print (dowewrite) ;
   } while ((menuTimer > millis() )  &&  !encButtonPressed);
   currentScreen = tempCurrentScreen;  //keep menu location
   encVal = tempCurrentScreen;
   encChange = 0;
   taskManager();
-  if (temp2 != 0 && encButtonPressed){
+  //if (temp2 != 0 && encButtonPressed){
+  if (dowewrite && encButtonPressed){
    parameters[currentScreen][0] = parameters[currentScreen][1];
    writeeprom(1, 0);  
   } else{
