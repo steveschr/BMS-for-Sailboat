@@ -1,3 +1,15 @@
+# Description & Purpose
+
+# Operation 
+
+# Construction
+
+# BOM
+
+# Installation
+## Modifications to boat
+
+# Details
 
 ## Parameter Menu Settings
 
