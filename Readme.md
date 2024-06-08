@@ -1,20 +1,23 @@
 # Description & Purpose
-Determinining lithium battery state of charge by voltage alone is too imprecise.  
+Determinining lithium battery state of charge by cell voltage alone is too imprecise.  Impossible to determine health of pack by pack voltage.
+
+I didn't like the idea of a drop in battery that might decide to disconnect or do a load dump when it wanted to.  (On a boat that means the worst possible moment)  I didn't want to add a start battery and the associated inefficiencies and complexity  When I started this project there wasn't much hardware available.  That's changed some but I still like this better.
+
 
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
-Accuracy to around 5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output 
-amplified by INA213 and read by MCP3204.  
+Accuracy to around 5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output amplified by INA213 and read by MCP3204.  
 40mA current draw, 80mA when LCD lit.
 
 # Construction
-Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.
-I assembled these with a hot plate for the surface mount and hand soldered to through hole components.
+Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with a hot plate for the surface mount and hand soldered to through hole components.
 
 # BOM
 
 # Installation
 ## Modifications to boat
+Latching relays control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank.
+
 
 # Details
 
@@ -63,7 +66,7 @@ HV Disconnect
 Assuming a bank protection relay boat & charging shut off until voltage falls below HVAlarm.  Will not stop the boat if PackVoltage < 15.6v.
 
 LV Disconnect
-Assuming a bank protection relay boat & charging shut off until voltage rises above LVAlarm. 
+Assuming a bank protection relay; boat & charging shut off until voltage rises above LVAlarm. 
 Will not stop the boat if PackVoltage > 10.0v.
 
 maxDrift
