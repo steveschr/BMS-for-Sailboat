@@ -1,8 +1,15 @@
 # Description & Purpose
+Determinining lithium battery state of charge by voltage alone is too imprecise.  
 
 # Operation 
+Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
+Accuracy to around 5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output 
+amplified by INA213 and read by MCP3204.  
+40mA current draw, 80mA when LCD lit.
 
 # Construction
+Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.
+I assembled these with a hot plate for the surface mount and hand soldered to through hole components.
 
 # BOM
 
@@ -12,8 +19,6 @@
 # Details
 
 ## Parameter Menu Settings
-
-Menu settings appear only in the operation mode they are associated with.
 
 Bank Capacity 
 Total bank capacity in AmpHours.
@@ -64,10 +69,8 @@ Will not stop the boat if PackVoltage > 10.0v.
 maxDrift
 In millivolts.  If setting is reached an alarm will set but charging will continue.
 
-
 C0Trim  C1Trim  C2Trim  C3Trim 
 Enter in mV any offset required so the display matches actual cell voltages.  
-
 
 Balance Allow V 
 Voltage to start balance.  Highest cell is used.  Needs the optional balance board connected.  
@@ -78,30 +81,23 @@ Show Cells
 Show Temps
 Shows temp sensor readings battery & balance board
 
-
-
 Show Alarms
 Shows all saved previous alarms, key sensor readings at last alarm and alarm flags that were set at the time of last alarm.
-
 
 Clear Alarm
 Clears all active & inactive alarms.
 
-
 Mode 
 Choose BMS, OFF or DUM.  DUM turns on the boat and allows charging with no protection.  DUM mode display shows highest cell voltage and SOC.   Switching back to BMS restores full management.  OFF mode prevents charging. 
-
 
 Encoder Direction
 Changes direction of the encoder knob.  Used only for initial setup if required.  The change is immediate so twisting the knob in one direction changes the value 1-0-1-0-1-0 etc.
 
-
 SOC
-Set current SOC
-
+Set current SOC   This may be useful for initial install or testing.
 
 Shunt Polarity 
 Allows connecting shunt in either direction.  Use if A display reversed.
 
-# of Temp Sense
+Number of Temp Sense
 Choose correct # of battery temp sensors used
