@@ -1,8 +1,15 @@
 # Description & Purpose
+Fully configurable BMS with balance for 4S LiFePO4 battery bank.  Measures and monitors pack and cell voltage as well as current load/charge of battery.  
+All settings as well as errors saved to EEPROM.  Starts and stops charge sources at user defined limits.  Single knob control with 4 line LCD display.  Provision for external alarm and pack disconnect as suggested by ABYC.
 
-Determinining lithium battery state of charge by cell voltage alone is too imprecise.  Impossible to determine health of pack by pack voltage.
 
-I didn't like the idea of a drop in battery that might decide to disconnect or do a load dump when it wanted to.  (On a boat that means the worst possible moment)  I didn't want to add a start battery and the associated inefficiencies and complexity  When I started this project there wasn't much hardware available.  That's changed some but I still like this better.
+# Genesis
+
+I wanted to install LiFePO4 batteries on my cruising sailboat and didn't like the feature set of the available BMS and control system options.  I didn't like the idea of a drop in battery that might decide to disconnect or do a load dump when it wanted to.  (On a boat that means the worst possible moment)  I didn't want to add a start battery and the associated inefficiencies and complexity  When I started this project there wasn't much hardware available.  That's changed some but I still like this better.
+For example I may want to keep the batteries at a specific SOC instead of charging to full all the time.  There's no way the alternator regulator or solar controller can know state of charge except by voltage.  I wanted control by SOC and voltage as well as full BMS protection.
+Determinining lithium battery state of charge (SOC) by cell voltage alone is too imprecise and it's impossible to determine health of pack by pack voltage.
+  
+
 
 
 # Credits
@@ -14,8 +21,8 @@ Accuracy better than +-5 mV.  Can be tuned for variations in resistor values.  C
 40mA current draw, 80mA when LCD lit.
 
 # Construction
-Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with the printed stencil and a hot plate for the surface mount.
-EasyEDA format schematic & board as well as gerbers for all.
+Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole components.  I assembled these with the printed stencil and a hot plate for the surface mount.
+EasyEDA format schematic & board as well as gerbers for all.  STL files for 3d printing of required cases and mounting bases.
 3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
 3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
 
