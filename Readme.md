@@ -20,6 +20,7 @@ EasyEDA format schematic & board as well as gerbers for all.
 3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
 
 [Main board](./Hardware/Mainboard/Mainboard.jpg)
+<img src="Hardware/Mainboard/Mainboard.jpg" alt="main board" width="512"/>
 
 # hardware
 Atmega 644 based.  
