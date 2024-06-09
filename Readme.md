@@ -1,19 +1,26 @@
 # Description & Purpose
-Fully configurable BMS with balance for 4S LiFePO4 battery bank.  Measures and monitors pack and cell voltage as well as current load/charge of battery.  
-All settings as well as errors saved to EEPROM.  Starts and stops charge sources at user defined limits.  Single knob control with 4 line LCD display.  Provision for external alarm and pack disconnect as suggested by ABYC.
+* Fully configurable BMS with balance for 4S LiFePO4 battery bank.  
+* Measures and monitors pack and cell voltage as well as current load/charge of battery.  
+* Starts and stops charge sources at user defined limits.  
+* All settings as well as errors saved to EEPROM.  
+* Single knob control with 4 line LCD display.  
+* Configurable alarm thresholds.
+* Provision for external alarm and pack disconnect as suggested by ABYC.  
+* Can easily be modified for seperate charge & load busses.
 
 
 # Genesis
 
-I wanted to install LiFePO4 batteries on my cruising sailboat and didn't like the feature set of the available BMS and control system options.  I didn't like the idea of a drop in battery that might decide to disconnect or do a load dump when it wanted to.  (On a boat that means the worst possible moment)  I didn't want to add a start battery and the associated inefficiencies and complexity  When I started this project there wasn't much hardware available.  That's changed some but I still like this better.
+I wanted to install LiFePO4 batteries on my cruising sailboat and didn't like the feature set of the available BMS and control system options.  I didn't like the idea of a drop in battery that might decide to disconnect or do a load dump when it wanted to.  (On a boat that means the worst possible moment)  I didn't want to add a start battery and the associated inefficiencies and complexity.  When I started this project there wasn't much hardware available.  That's changed some but I still like this better.
 For example I may want to keep the batteries at a specific SOC instead of charging to full all the time.  There's no way the alternator regulator or solar controller can know state of charge except by voltage.  I wanted control by SOC and voltage as well as full BMS protection.
 Determinining lithium battery state of charge (SOC) by cell voltage alone is too imprecise and it's impossible to determine health of pack by pack voltage.
   
+After trying a few other methods I ended up using a simple resistor voltage divider circuit for the front end.  Yeah I guess I feel a little embarassed I didn't do something more sophisticated but since there's only 4 cells in series it works well, the biggest trouble is error trapping for an open cell connection.
 
 
 
 # Credits
-Stuart Pittaway
+Stuart Pittaway,  Robert Kirberich (solder-stencil.me), Majenko Technologies (MCP3208 library), lots of snips from around the net I can't recall to credit, 
 
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
@@ -50,7 +57,7 @@ Compiled on Arduino IDE with MCUdude's excellent MightyCore
 ## Modifications to boat
 Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See [the overview](./Schematic_Typical-Layouts.pdf)
 
-
+# Warning
 
 # Details
 
