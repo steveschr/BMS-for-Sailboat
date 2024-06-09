@@ -27,6 +27,9 @@ Shunt board
 
 <img src="Hardware/ShuntBoard/shuntBoard.jpg" alt="shunt board" width="512"/>
 
+Balance board
+
+<img src="Hardware/BalanceBoard/BalanceBoard.jpg" alt="balance board" width="512"/>
 
 # hardware
 Atmega 644 based.  
