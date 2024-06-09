@@ -19,6 +19,8 @@ EasyEDA format schematic & board as well as gerbers for all.
 3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
 3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
 
+[Main board](./Hardware/Mainboard/Mainboard.jpg)
+
 # hardware
 Atmega 644 based.  
 
