@@ -14,9 +14,9 @@ Accuracy better than +-5 mV.  Can be tuned for variations in resistor values.  C
 40mA current draw, 80mA when LCD lit.
 
 # Construction
-Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with a hot plate for the surface mount.
+Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole.  I assembled these with the printed stencil and a hot plate for the surface mount.
 EasyEDA format schematic & board as well as gerbers for all.
- 
+3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
 3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
 
 # hardware
@@ -29,8 +29,9 @@ Compiled on Arduino IDE with MCUdude's excellent MightyCore
 
 # Installation
 ## Modifications to boat
-Latching relays control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.
-3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
+Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See (Schematic_Typical-Layouts.pdf)
+
+
 
 # Details
 
