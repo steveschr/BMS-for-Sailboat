@@ -58,8 +58,9 @@ Relay ADJH24112 - for control of charge sources
 
 Relay G9TB-K1ATH-E DC12  - 120A for load or charge bus
 
-[24ga silicone wire](https://www.aliexpress.us/item/3256806064207395.html?pdp_npi=4%40dis%21USD%21US%20%240.96%21US%20%240.96%21%21%216.94%216.94%21%402103244617179365350822715e00c2%2112000036468608698%21sh%21US%211832439624%21&spm=a2g0o.store_pc_allItems_or_groupList.new_all_items_2007607864893.1005006250522147&gatewayAdapt=glo2usa)
+[24ga silicone wire](https://www.aliexpress.us/item/3256806064207395.html?pdp_npi=4%40dis%21USD%21US%20%240.96%21US%20%240.96%21%21%216.94%216.94%21%402103244617179365350822715e00c2%2112000036468608698%21sh%21US%211832439624%21&spm=a2g0o.store_pc_allItems_or_groupList.new_all_items_2007607864893.1005006250522147&gatewayAdapt=glo2usa) 
 
+[Quick disconnects for wire to board](https://www.aliexpress.us/item/2251832631116552.html?spm=a2g0o.order_list.order_list_main.38.61301802aOt6R2&gatewayAdapt=glo2usa) But the pins are oversize and must be trimmed.
 
 # Installation
 ## Modifications to boat
