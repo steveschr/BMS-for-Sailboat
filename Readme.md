@@ -1,4 +1,4 @@
-## Fully configurable BMS and charge controller with balance for 4S LiFePO4 battery bank.  
+# Fully configurable BMS and charge controller with balance for 4S LiFePO4 battery bank on a cruising sailboat.  
 
 # Description & Purpose
 
