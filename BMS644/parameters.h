@@ -9,8 +9,6 @@
   C3 = 3.32 / 13.32 = .249249
   Total_Voltage = 4 / 14 = .2857
 
-//test git
-//test github desktop
 
   TODO
 add/modify:
