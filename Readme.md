@@ -10,6 +10,7 @@
 * External alarm ready 
 * Pack disconnect function as suggested by ABYC.  
 * Can easily be modified for seperate charge & load busses.
+* Charge lockout below freezing.
 
 
 # Genesis
@@ -20,10 +21,12 @@ Determinining lithium battery state of charge (SOC) by cell voltage alone is too
   
 After trying a few other methods I ended up using a simple resistor voltage divider circuit for the front end.  Yeah I guess I feel a little embarassed I didn't do something more sophisticated but since there's only 4 cells in series it works well, the biggest trouble is error trapping for an open cell connection.
 
+I've been using this system successfully for several years.   
+
 
 
 # Credits
-Stuart Pittaway,  Robert Kirberich (solder-stencil.me), Majenko Technologies (MCP3208 library), lots of snips from around the net I can't recall to credit, 
+Stuart Pittaway - Lot's of inspiration here.  Robert Kirberich (solder-stencil.me), Majenko Technologies (MCP3208 library), lots of snips from around the net I can't recall to credit, 
 
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
@@ -88,10 +91,13 @@ Compiled on Arduino IDE with MCUdude's excellent MightyCore
 # Installation
 ## Modifications to boat
 Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See [the overview](./Schematic_Typical-Layouts.pdf)
+My boat is out of the water in the summer, I disconnect the BMS from the battery and the battery from the boat for storage.
 
 # Warning
+Lithium batteries can be dangerous.  If you build and or use this device it's at your own risk.
 
 # Details
+See individual hardware folders.
 
 # Future Plans
 Maybe add Bluetooth
