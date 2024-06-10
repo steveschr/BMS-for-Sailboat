@@ -38,7 +38,7 @@ Main board, Balance board, temperature sensor boards and current shunt board.  A
 EasyEDA format schematic & board as well as gerbers for all.  STL files for 3d printing of required cases and mounting bases.
 3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
 3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
-Compiled on Arduino IDE 2.3.2 with MCUdude's Mightycore.  Required LCD & MCP3208 libraries included.  Any compatible programmer should work, I use STK500, Atmel ICE, Tiny USB.
+Compiled on Arduino IDE with MCUdude's excellent MightyCore (Atmega644/BOD 4.3/No Bootloader/External 16MHz/LTO Enabled/Bobuino/644-644A  Required LCD & MCP3208 libraries included.  Any compatible programmer should work, I use STK500, Atmel ICE, Tiny USB.
 
 Main board
 
