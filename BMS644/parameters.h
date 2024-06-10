@@ -26,7 +26,7 @@ VERIFY LOGIC     rework HV & LV cut & sanity checks,
     
 Broken:
 if 1 cell open display wrong because of ABS calc.  do test
-sometimes reboots on eprom save
+sometimes reboots on eprom save 
 
 
 v1.2.0 change log:
@@ -45,10 +45,10 @@ add cell V to cell trim screens, add stats for last charge data to show cells,
 v 1.2.1(b)
 changed some pin assignments to match new hardware & balance board.  use top cell for pack voltage calc.  
 set balance time to 10 min (100mA).  dont record UT event to EEPROM.  Display packvoltage instead of sum of cells
-fixup lv disconnect logic.  set lv alarm 10mV higher than lv disco if it was lower, reworked menu input - now requires button 
-press to set value.  Improved open cell routine.  cell # 0 vol can remain high - no bleed.  Cell #3 triggers both hv & lv disco
+fixup Lv disconnect logic.  set lv alarm 10mV higher than Lv disco if it was lower, reworked menu input - now requires button 
+press to set value.  Improved open cell routine.  cell # 0 vol can remain high - no bleed resistor to gnd.  Cell #3 triggers both hv & lv disco
 
-NEED reset lvdisco bounds , cycle count prbly wrong , RESST SHUNT
+NEED reset lvdisco bounds , cycle count prbly wrong , fixup OC logic
 
 */
 
@@ -252,8 +252,8 @@ const unsigned int alarmDataPointer = alarmHistoryPointer + (sizeof(int) * 25) +
 const byte RelayOnTime = 20;
 const float vref0 = .0005; //2.048 / 4096 measured values of vol references
 const float vref1 = .001;  //4.096 / 4096
-//float shuntR = .00025; //200A-50mV
-float shuntR = .001; //50A-50mV
+float shuntR = .00025; //200A-50mV
+//float shuntR = .001; //50A-50mV
 
 float shuntPolarity = 1.0;
 
