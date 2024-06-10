@@ -182,7 +182,7 @@ SOC
 Set current SOC   This may be useful for initial install or testing.
 
 Shunt Polarity 
-Allows connecting shunt in either direction.  Use if A display reversed.
+Allows connecting shunt in either direction.  Use if Amps display reversed.
 
 Number of Temp Sense
 Choose correct # of battery temp sensors used
