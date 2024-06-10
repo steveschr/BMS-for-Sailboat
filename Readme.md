@@ -101,7 +101,7 @@ Lithium batteries can be dangerous.  If you build and or use this device it's at
 See individual hardware folders.
 
 # Future Plans
-Maybe add Bluetooth
+Maybe add Bluetooth.  Add terminal connectors for the battery temp sensors.
 
 ## Parameter Menu Settings
 
