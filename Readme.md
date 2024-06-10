@@ -38,6 +38,7 @@ Main board, Balance board, temperature sensor boards and current shunt board.  A
 EasyEDA format schematic & board as well as gerbers for all.  STL files for 3d printing of required cases and mounting bases.
 3D print using PetG or similar.  PLA is too brittle.  Boards & LCD fit on printed pins, flatten pins with a soldering iron.  No screws needed.
 3D printed stencil for main board (Thank you to https://solder-stencil.me/ )
+Compiled on Arduino IDE 2.3.2 with MCUdude's Mightycore.  Required LCD & MCP3208 libraries included.  Any compatible programmer should work, I use STK500, Atmel ICE, Tiny USB.
 
 Main board
 
@@ -83,7 +84,7 @@ Compiled on Arduino IDE with MCUdude's excellent MightyCore
 
 [Header connector wire to board 2.54 2x5](https://www.aliexpress.us/item/3256805956473629.html?spm=a2g0o.productlist.main.3.78dc42b9pKvYp1&algo_pvid=7f9d8fa7-1003-4b3d-9d7c-b0c53a02bdd6&algo_exp_id=7f9d8fa7-1003-4b3d-9d7c-b0c53a02bdd6-1&pdp_npi=4%40dis%21USD%2110.97%213.64%21%21%2179.24%2126.29%21%402103244817179398228626478eea2b%2112000035952616219%21sea%21US%211832439624%21&curPageLogUid=GhVZgqrfUpRY&utparam-url=scene%3Asearch%7Cquery_from%3A)
 
-
+There's a set of BOMs in the hardware folder, 1 for each board.  Wiring and terminal blocks are NOT in the BOMs.
 
 
 
