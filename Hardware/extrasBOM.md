@@ -1,5 +1,7 @@
 # Additional parts
 
+* You'll need some of this stuff too.
+
 [Relay ADJH24112 - for control of charge sources](https://www.digikey.com/en/products/detail/panasonic-electric-works/ADJH24112/7537062?s=N4IgTCBcDaIIIBEBSAJMAWAjJiBdAvkA)
 
 [Relay G9TB-K1ATH-E DC12  - 120A for load or charge bus](https://www.digikey.com/en/products/detail/omron-electronics-inc-emc-div/G9TB-K1ATH-E-DC12/8593134?s=N4IgTCBcDaIOIE4AqAhAtAaQIwEEkAk0BRAAgBEBhLCAXQF8g)
