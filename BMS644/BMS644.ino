@@ -157,7 +157,7 @@ float getTemps(int req) {  //3 on mainboard to ADC
   if ((tempSensor[hiindex] >= 100.0) && (tempSensor[hiindex] - tempSensor[loindex] < 25)) {
     if (!AlarmFlagOT) {
       flagCountOT++;
-      if (flagCountOT > 64) {
+      if (flagCountOT > 16) {
         AlarmFlagOT = true;
         alarm();
         writeeprom(3, 1);
@@ -168,7 +168,7 @@ float getTemps(int req) {  //3 on mainboard to ADC
   if ((tempSensor[hiindex] >= 130.0) && (tempSensor[hiindex] - tempSensor[loindex] < 25)) {
     if (!AlarmFlagOTdisconnect) {
       flagCountOTdisconnect++;
-      if (flagCountOTdisconnect > 64) {
+      if (flagCountOTdisconnect > 16) {
         AlarmFlagOTdisconnect = true;
         alarm();
         writeeprom(3, 10);
@@ -187,7 +187,7 @@ float getTemps(int req) {  //3 on mainboard to ADC
     AlarmFlagOTdisconnect = false;
     if (!AlarmFlagSYS) {
       flagCountSYS++;
-      if (flagCountSYS > 250) {
+      if (flagCountSYS > 128) {
         AlarmFlagSYS = true;
         lockoutStartTime = millis();
         lockoutStartTimeSYS = millis();
@@ -210,7 +210,7 @@ float getTemps(int req) {  //3 on mainboard to ADC
   if (tempSensor[loindex] < 36.0 && (abs(tempSensor[hiindex] - tempSensor[loindex]) >= 25)) {
     if (!AlarmFlagSYS) {
       flagCountSYS++;
-      if (flagCountSYS > 8) {
+      if (flagCountSYS > 16) {
         AlarmFlagSYS = true;
         lockoutStartTime = millis();
         lockoutStartTimeSYS = millis();
@@ -227,7 +227,7 @@ float getTemps(int req) {  //3 on mainboard to ADC
     }
     if (!AlarmFlagUT) {
       flagCountUT++;
-      if (flagCountUT > 64) {
+      if (flagCountUT > 16) {
         AlarmFlagUT = true;
         //writeeprom(3, 2);
       }
