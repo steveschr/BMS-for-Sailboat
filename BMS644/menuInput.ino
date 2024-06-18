@@ -231,7 +231,6 @@ void inputAction() {
   encVal = tempCurrentScreen;
   encChange = 0;
   taskManager();
-  //if (temp2 != 0 && encButtonPressed){
   if (dowewrite && encButtonPressed){
    parameters[currentScreen][0] = parameters[currentScreen][1];
    writeeprom(1, 0);  

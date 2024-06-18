@@ -191,7 +191,7 @@ const byte AUXpin2 = 26;     //AUX2    26  26
 const byte AUXpin3 = 25;     //AUX3    25  25
 const byte AUXpin5 = 14;     //AUX5    33  14
 const byte balancePins[4] = {0, 1, 8, 9};
-const int balanceTempSensor = 4;    
+const int balanceTempSensor = 4;    //pin # 4 of ADC
 
 
 

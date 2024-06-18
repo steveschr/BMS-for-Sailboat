@@ -127,7 +127,7 @@ float getTemps(int req) {  //3 on mainboard to ADC
     }
   } 
 
-  int t = adc1.analogRead(balanceTempSensor);
+  int t = adc1.analogRead(balanceTempSensor);  //pin #4 of ADC
   K = 1.00 / (invT0 + invBeta * (log(4095 / (float)t - 1.00)));
   C = K - 273.15;                  // convert to Celsius
   F = ((9.0 * C) / 5.00) + 32.00;  // convert to Fahrenheit
