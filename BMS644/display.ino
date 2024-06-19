@@ -641,7 +641,7 @@ void getCurrentScreen() {
 void cleanDisplay() {
   for (int i = 0; i < 2; i++) {
   if (parameters[SCRstartChargeV][i] < 2.5) parameters[SCRstartChargeV][i] = 2.5;
-  if (parameters[SCRstopChargeV][i] < parameters[SCRstartChargeV][i] + .15) parameters[SCRstopChargeV][i] = parameters[SCRstartChargeV][i] + .16;
+  if (parameters[SCRstopChargeV][i] < parameters[SCRstartChargeV][i] + .15) parameters[SCRstopChargeV][i] = parameters[SCRstartChargeV][i] + .15;
   if (parameters[SCRHVAlarm][i] < 3.0) parameters[SCRHVAlarm][i] = 3.0;
   if (parameters[SCRLVAlarm][i] < 2.8) parameters[SCRLVAlarm][i] = 2.8;
   if (parameters[SCRHVdisconnect][i] < 3.6) parameters[SCRHVdisconnect][i] = 3.6;

@@ -37,6 +37,7 @@ void setup() {
   digitalWrite(adcU1, HIGH);
   lcd.init();
   lcd.backlight();
+  lcd.clear();
   SPI.beginTransaction(SPISettings(1000, MSBFIRST, SPI_MODE0));  //
   delay(50);
   adc0.begin();
@@ -59,7 +60,6 @@ void setup() {
   startBoat();
   ChargeON = 1;
   stopCharge();
-  //stopBoat();
   lockoutStartTime = millis();
   chargeLock = true;  
   for (int i = 0; i < numOfScreens; i++) {   //copy working array values to display array

@@ -31,7 +31,7 @@ Stuart Pittaway - Lot's of inspiration here.  Robert Kirberich (solder-stencil.m
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
 Accuracy better than +-5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output amplified by INA213 and read by MCP3204.  
-40mA current draw, 80mA when LCD lit.
+27mA current draw, 68mA when LCD lit.
 
 # Construction
 Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole components.  I assembled these with the printed stencil and a hot plate for the surface mount.

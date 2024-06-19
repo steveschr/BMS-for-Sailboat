@@ -177,7 +177,7 @@ const byte adcU1 = 10;  //pin 3
 
 
 //                              USE    MPU  ID         
-const byte ALARMpin = 24;    //AUX4    24  24   1 AMP
+const byte ALARMpin = 24;    //AUX4    24  24   
 const byte AcChrge_OFF = 19; //ShOFF   38  19/A5
 const byte AcChrge_ON = 18;  //ShON    37  18/A4
 const byte Solar_OFF = 17 ;  //SolOFF  36  17/A3
