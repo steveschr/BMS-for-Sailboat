@@ -29,15 +29,10 @@ void setup() {
   pinMode(AUXpin3, OUTPUT);
   pinMode(AUXpin5, OUTPUT);  
   analogReference(DEFAULT);
-    for (byte j = 0; j <= 3; j++) {
-      for (byte i = 0; i <= 3; i++) {  //Balance outputs to MOSFETs
-    pinMode(balancePins[i], OUTPUT);
-    digitalWrite(balancePins[i], HIGH);
-    delay(100);
-    digitalWrite(balancePins[i], LOW);
-      }
-    }
-
+  for (byte j = 0; j <= 3; j++) {  //Balance outputs to MOSFETs
+    pinMode(balancePins[j], OUTPUT);
+  }
+  flashBalanceLEDs();
   digitalWrite(adcU0, HIGH);
   digitalWrite(adcU1, HIGH);
   lcd.init();
@@ -70,6 +65,7 @@ void setup() {
   for (int i = 0; i < numOfScreens; i++) {   //copy working array values to display array
   parameters[i][1] = parameters[i][0];
   }
+  flashBalanceLEDs();
 }
 
 

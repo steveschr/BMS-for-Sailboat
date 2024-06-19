@@ -23,14 +23,14 @@ void printCells() {
   lcd.print((voltageDrift * 1000.0), 0);
 
   lcd.setCursor(0, 2);
-  lcd.print(F("C0:"));
+  lcd.print(F("C1:"));
   lcd.print(balanceCount[0]);
-  lcd.print(F(" C1:"));
+  lcd.print(F(" C2:"));
   lcd.print(balanceCount[1]);
   lcd.setCursor(0, 3);
-  lcd.print(F("C2:"));
+  lcd.print(F("C3:"));
   lcd.print(balanceCount[2]);
-  lcd.print(F(" C3:"));
+  lcd.print(F(" C4:"));
   lcd.print(balanceCount[3]);
   delay(4000);
 
@@ -172,8 +172,9 @@ void LCDstatus() {
         lcd.setCursor(0, 2);
         lcd.print(F("BAL:"));
         lcd.print(balcell + 1);
-        //lcd.print(F(" "));
-        //lcd.print((millis() - balanceTime)/1000);
+        lcd.print(F(":"));
+        lcd.print(tempSensor[3], 0);
+        lcd.write(0xDF);  
       }
       //dispStatusCycle = 6;
       if (alarmCount > 0) {
@@ -640,7 +641,7 @@ void getCurrentScreen() {
 void cleanDisplay() {
   for (int i = 0; i < 2; i++) {
   if (parameters[SCRstartChargeV][i] < 2.5) parameters[SCRstartChargeV][i] = 2.5;
-  if (parameters[SCRstopChargeV][i] < parameters[SCRstartChargeV][i] + .05) parameters[SCRstopChargeV][i] = parameters[SCRstartChargeV][i] + .05;
+  if (parameters[SCRstopChargeV][i] < parameters[SCRstartChargeV][i] + .15) parameters[SCRstopChargeV][i] = parameters[SCRstartChargeV][i] + .16;
   if (parameters[SCRHVAlarm][i] < 3.0) parameters[SCRHVAlarm][i] = 3.0;
   if (parameters[SCRLVAlarm][i] < 2.8) parameters[SCRLVAlarm][i] = 2.8;
   if (parameters[SCRHVdisconnect][i] < 3.6) parameters[SCRHVdisconnect][i] = 3.6;
@@ -667,8 +668,8 @@ void cleanDisplay() {
   if (parameters[SCRnumTsense][i] < 0) parameters[SCRnumTsense][i] = 0;
 
 
-
-  if (parameters[SCRstartChargeV][i] > parameters[SCRstopChargeV][i] - .06) parameters[SCRstartChargeV][i] = parameters[SCRstopChargeV][i] - .06;
+  if (parameters[SCRstartChargeV][i] > 3.5 ) parameters[SCRstartChargeV][i] = 3.5;
+  if (parameters[SCRstartChargeV][i] > parameters[SCRstopChargeV][i] - .15 ) parameters[SCRstartChargeV][i] = parameters[SCRstopChargeV][i] - .15;
   if (parameters[SCRstopChargeV][i] > 3.65) parameters[SCRstopChargeV][i] = 3.65;
   if (parameters[SCRHVAlarm][i] > 4.0) parameters[SCRHVAlarm][i] = 4.0;
   if (parameters[SCRLVAlarm][i] > 4.0) parameters[SCRLVAlarm][i] = 4.0;

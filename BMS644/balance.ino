@@ -1,9 +1,8 @@
 void doBalance() {  //test, discharge, rest, test
 
 if ( cellV[maxIndex] > parameters[SCRbalanceV][0] ){  //Cell V above Bal setting
-  if ((voltageDrift > .050) && tempSensor[3] <= 95 && !AlarmFlag && (millis() - lockoutStartTimeBAL > 60000)) {  
-    if ( ! balON ) {
-       //30 sec delay before bal allowed again, 50mV spread, check temp sensors
+  if ((voltageDrift > .050) && cellV[minIndex] > 3.35 && tempSensor[3] <= 95 && !AlarmFlag && (millis() - lockoutStartTimeBAL > 60000)) {  
+    if ( ! balON ) {          //30 sec delay before bal allowed again, 50mV spread, check temp sensors
      digitalWrite(balancePins[maxIndex], HIGH);
      balcell = maxIndex;
      balanceTime = millis();
@@ -35,6 +34,16 @@ void balanceOff(){   //not in use.  turns off all balance pins
 
 
   rate 3.4v @ 3 Ohm = 1A   
-  measured 1.5A @ 3.3 V thru 2 Ohm  so ~ 40min / Amp
+  
 
 */
+
+void flashBalanceLEDs(){
+    for (byte j = 0; j <= 3; j++) {
+      for (byte i = 0; i <= 3; i++) {  //Balance outputs to MOSFETs
+    digitalWrite(balancePins[i], HIGH);
+    delay(100);
+    digitalWrite(balancePins[i], LOW);
+      }
+    }
+}    

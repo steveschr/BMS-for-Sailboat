@@ -8,7 +8,6 @@ void inputAction() {
   //encButtonPressed = 0;
   cleanDisplay();
   printScreen();
-  //float temp2 = 0;   //used to see if we changed something and need to write eprom
   bool dowewrite = 0;
 
   do {
@@ -218,14 +217,10 @@ void inputAction() {
       lcd.clear();
       cleanDisplay();
       printScreen();
-      //temp2=temp;  
     }
     lcd.setCursor(0, 3);
     cleanDisplay();
     lcd.print(F("> PRESS TO SAVE"));
-    //lcd.print (encButtonPressed) ;
-    //lcd.print(F("> "));
-    //lcd.print (dowewrite) ;
   } while ((menuTimer > millis() )  &&  !encButtonPressed);
   currentScreen = tempCurrentScreen;  //keep menu location
   encVal = tempCurrentScreen;
