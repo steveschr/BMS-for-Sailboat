@@ -42,7 +42,7 @@ void flashBalanceLEDs(){
     for (byte j = 0; j <= 3; j++) {
       for (byte i = 0; i <= 3; i++) {  //Balance outputs to MOSFETs
     digitalWrite(balancePins[i], HIGH);
-    delay(100);
+    delay(300);
     digitalWrite(balancePins[i], LOW);
       }
     }

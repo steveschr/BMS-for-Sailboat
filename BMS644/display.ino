@@ -675,7 +675,7 @@ void cleanDisplay() {
   if (parameters[SCRLVAlarm][i] > 4.0) parameters[SCRLVAlarm][i] = 4.0;
   if (parameters[SCRHVdisconnect][i] > 4.5) parameters[SCRHVdisconnect][i] = 4.5;
   if (parameters[SCRLVdisconnect][i] > 3.4) parameters[SCRLVdisconnect][i] = 3.4;
-  if (parameters[SCRLVdisconnect][i] > parameters[SCRLVAlarm][i] ) parameters[SCRLVAlarm][i] = parameters[SCRLVdisconnect][i] + .01; //<<<<
+  //if (parameters[SCRLVdisconnect][i] > parameters[SCRLVAlarm][i] ) parameters[SCRLVAlarm][i] = parameters[SCRLVdisconnect][i] + .02; //<<<<
   if (parameters[SCRmaxDrift][i] > 500) parameters[SCRmaxDrift][i] = 500;
   if (parameters[SCRC0Trim][i] > 500) parameters[SCRC0Trim][i] = 500;
   if (parameters[SCRC1Trim][i] > 500) parameters[SCRC1Trim][i] = 500;
