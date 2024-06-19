@@ -29,15 +29,15 @@ void setup() {
   pinMode(AUXpin3, OUTPUT);
   pinMode(AUXpin5, OUTPUT);  
   analogReference(DEFAULT);
+  lcd.init();
+  lcd.backlight();
+  lcd.clear();
   for (byte j = 0; j <= 3; j++) {  //Balance outputs to MOSFETs
     pinMode(balancePins[j], OUTPUT);
   }
   flashBalanceLEDs();
   digitalWrite(adcU0, HIGH);
   digitalWrite(adcU1, HIGH);
-  lcd.init();
-  lcd.backlight();
-  lcd.clear();
   SPI.beginTransaction(SPISettings(1000, MSBFIRST, SPI_MODE0));  //
   delay(50);
   adc0.begin();
