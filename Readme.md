@@ -68,7 +68,7 @@ There's a set of BOMs in the hardware folder, 1 for each board.  Wiring and term
 
 # Installation
 ## Modifications to boat
-Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See [the overview](./Schematic_Typical-Layouts.pdf)
+Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See [the overview](./Schematic_Typical-Layouts.pdf) and an [as built](./LittleWillieAsBuilt.pdf)
 My boat is out of the water in the summer, I disconnect the BMS from the battery and the battery from the boat for storage.
 
 # Warning
