@@ -53,7 +53,7 @@ Balance board
 <img src="Hardware/BalanceBoard/BalanceBoard.jpg" alt="balance board" width="512"/>
 
 
-<img src="Hardware/images/bms.jpg" width="512"/>
+<img src="Hardware/images/BMS.jpg" width="512"/>  
 
 
 <img src="Hardware/images/Regulator_Relay.jpg" width="512"/>
