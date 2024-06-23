@@ -52,6 +52,19 @@ Balance board
 
 <img src="Hardware/BalanceBoard/BalanceBoard.jpg" alt="balance board" width="512"/>
 
+
+<img src="Hardware/images/bms.jpg" width="512"/>
+
+
+<img src="Hardware/images/Regulator_Relay.jpg" width="512"/>
+
+
+<img src="Hardware/images/Tom_boxes.jpg" width="512"/>
+
+
+<img src="Hardware/images/Tom_boxesOpen.jpg" width="512"/>
+
+
 # hardware
 Atmega 644 based.  
 
