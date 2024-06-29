@@ -2,6 +2,7 @@
 
 # Description & Purpose
 
+* Prevents load dump by controlling charge sources.
 * Measures and monitors pack and cell voltage as well as current load/charge of battery.  
 * Starts and stops charge sources at user defined limits.  The charge sources are then programmed as desired.
 * All settings as well as errors saved to EEPROM.  
