@@ -32,7 +32,7 @@ Stuart Pittaway - Lot's of inspiration here.  Robert Kirberich (solder-stencil.m
 # Operation 
 Cell voltage is determined by resistor voltage dividers and MCP3208 analog to digital converter.  
 Accuracy better than +-5 mV.  Can be tuned for variations in resistor values.  Current is read by a 200A 50mV shunt output amplified by INA213 and read by MCP3204.  
-27mA current draw, 68mA when LCD lit.
+27mA current draw, 68mA when LCD lit.  The drain caused by the resistor dividers is .25mA or less per cell.
 
 # Construction
 Main board, Balance board, temperature sensor boards and current shunt board.  A combination of surface mount and through hole components.  I assembled these with the printed stencil and a hot plate for the surface mount.
@@ -53,6 +53,19 @@ Balance board
 
 <img src="Hardware/BalanceBoard/BalanceBoard.jpg" alt="balance board" width="512"/>
 
+
+<img src="Hardware/images/BMS.jpg" width="512"/>  
+
+
+<img src="Hardware/images/Regulator_Relay.jpg" width="512"/>
+
+
+<img src="Hardware/images/Tom_boxes.jpg" width="512"/>
+
+
+<img src="Hardware/images/Tom_boxesOpen.jpg" width="512"/>
+
+
 # hardware
 Atmega 644 based.  
 
@@ -69,7 +82,7 @@ There's a set of BOMs in the hardware folder, 1 for each board.  Wiring and term
 
 # Installation
 ## Modifications to boat
-Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See [the overview](./Schematic_Typical-Layouts.pdf)
+Install latching relays to control AC input to shore charger, solar panel input to solar charger, ign signal to alternator relay.  Provision for latching relay to protect bank; I have a friend that uses this to shut off the fridge when the dock power goes out for long enough to drain the battery.  See [the overview](./Schematic_Typical-Layouts.pdf) and an [as built](./LittleWillieAsBuilt.pdf)
 My boat is out of the water in the summer, I disconnect the BMS from the battery and the battery from the boat for storage.
 
 # Warning
@@ -136,7 +149,7 @@ C0Trim  C1Trim  C2Trim  C3Trim
 Enter in mV any offset required so the display matches actual cell voltages.  
 
 Balance Allow V 
-Voltage to start balance.  Highest cell is used.  Needs the optional balance board connected.  
+Voltage to start balance.  Highest cell is used.  Needs the balance board connected.  
 
 Show Cells 
 1st screen shows voltage of all cells, # of charge cycles since startup, cell drift in mV and # of times each cell has been balanced.  2nd screen shows system voltages, 3rd screen shows hi & lo cell, amperage, drift, pack & total voltage at end of last charge cycle.
