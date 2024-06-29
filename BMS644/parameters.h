@@ -223,6 +223,7 @@ byte flagCountOVdisconnect = 0;
 byte flagCountUVdisconnect = 0;
 byte flagCountDrift = 0;
 byte flagCountSYS = 0;
+byte flagCountStartCharge = 0;  //delay charge start in V mode
 byte balcell = 0;
 
 

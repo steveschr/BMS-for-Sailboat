@@ -279,7 +279,11 @@ void logic() {  //add bank out of range,
     if (!AlarmFlagOT && !AlarmFlagUT && !AlarmFlagOV && !AlarmFlagSYS) {  //Temp, Voltage & system integrity
       if (parameters[SCRchargeMode][0] == 0 ) {                                   //0 = Volt mode 
         if (cellV[minIndex] <= parameters[SCRstartChargeV][0] && cellV[maxIndex] <= parameters[SCRstopChargeV][0]) {  //if at LV trigger - charge
-          startCharge();
+           flagCountStartCharge++;            //delay charge start in V mode
+           if (flagCountStartCharge > 10) {
+            flagCountStartCharge = 0;
+            startCharge();
+           }
         }
       }
       if (parameters[SCRchargeMode][0] == 1) {  //1 = SOC mode
