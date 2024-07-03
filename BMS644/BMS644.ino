@@ -281,7 +281,6 @@ void logic() {  //add bank out of range,
         if (cellV[minIndex] <= parameters[SCRstartChargeV][0] && cellV[maxIndex] <= parameters[SCRstopChargeV][0]) {  //if at LV trigger - charge
            flagCountStartCharge++;            //delay charge start in V mode
            if (flagCountStartCharge > 10) {
-            flagCountStartCharge = 0;
             startCharge();
            }
         }
@@ -569,7 +568,7 @@ void startCharge() {
     if (!ChargeON && (currentMode == "BMS" || currentMode == "DUM")) {  //if not charging start charging
       lcd.clear();
       lcd.print("START CHARGE");
-
+      flagCountStartCharge = 0;
       digitalWrite(Solar_ON, HIGH);
       delay(RelayOnTime);
       digitalWrite(Solar_ON, LOW);
